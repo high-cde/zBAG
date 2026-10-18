@@ -1,0 +1,5 @@
+// zBAG - ZDOS Secure Enclave
+module zBAG {
+    enforce_zero_mock();
+    sync_dsn_ledger();
+}
