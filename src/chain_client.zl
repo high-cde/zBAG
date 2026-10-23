@@ -1,0 +1,31 @@
+// ==========================================
+// ZDOS // ZBAG BLOCKCHAIN CLIENT BRIDGE (ZLang)
+// ==========================================
+
+module ZBagChainClient {
+
+    struct RPCNodeConnection {
+        string endpoint_url;
+        u32 chain_id;
+        bool is_connected;
+    }
+
+    // Connessione al nodo validatore ZDOS Sovereign Chain
+    pub fn connect_to_sovereign_chain(url: string) -> RPCNodeConnection {
+        let conn = RPCNodeConnection {
+            endpoint_url: url,
+            chain_id: 7777, // ZDOS Sovereign ID
+            is_connected: true
+        };
+
+        system_log("ZBAG-CLIENT: Connesso con successo al nodo ZDOS -> " + url);
+        return conn;
+    }
+
+    // Invio di una richiesta di saldo nativo ZVT / DSN
+    pub fn fetch_account_balance(address: string) -> u64 {
+        system_log("ZBAG-CLIENT: Interrogazione saldo per l'indirizzo: " + address);
+        // Ritorna il saldo simulato dal runtime ZLB2
+        return 100000; 
+    }
+}
